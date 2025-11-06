@@ -31,11 +31,15 @@ public class LiveInfoEditView extends BasicView {
 
     private       EditText                                    mEditRoomName;
     private       TextView                                    mTextStreamPrivacyStatus;
+    private       TextView                                    mTextStreamGameType;
     private       ImageView                                   mImageStreamCover;
     private       StreamPresetImagePicker                     mStreamPresetImagePicker;
     private final Observer<String>                            mLiveCoverObserver         = this::onLiveCoverChanged;
     private final Observer<RoomState.LiveStreamPrivacyStatus> mLivePrivacyStatusObserver =
             this::onLivePrivacyStatusChange;
+
+    private final Observer<RoomState.LiveStreamGameType> mLiveGameTypeObserver =
+            this::onLiveGameTypeChange;
 
     public LiveInfoEditView(@NonNull Context context) {
         this(context, null);
@@ -54,8 +58,10 @@ public class LiveInfoEditView extends BasicView {
         LayoutInflater.from(getContext()).inflate(R.layout.livekit_layout_anchor_preview_live_info_edit,
                 this, true);
         initLivePrivacyStatusPicker();
+        initLiveGameTypePicker();
         mImageStreamCover = findViewById(R.id.iv_cover);
         mTextStreamPrivacyStatus = findViewById(R.id.tv_stream_privacy_status);
+        mTextStreamGameType = findViewById(R.id.tv_stream_game_type);
         mEditRoomName = findViewById(R.id.et_stream_name);
         mEditRoomName.addTextChangedListener(new TextWatcher() {
 
@@ -106,12 +112,14 @@ public class LiveInfoEditView extends BasicView {
     protected void addObserver() {
         mRoomState.coverURL.observeForever(mLiveCoverObserver);
         mRoomState.liveExtraInfo.liveMode.observeForever(mLivePrivacyStatusObserver);
+        mRoomState.liveExtraInfo.gameType.observeForever(mLiveGameTypeObserver);
     }
 
     @Override
     protected void removeObserver() {
         mRoomState.coverURL.removeObserver(mLiveCoverObserver);
         mRoomState.liveExtraInfo.liveMode.removeObserver(mLivePrivacyStatusObserver);
+        mRoomState.liveExtraInfo.gameType.removeObserver(mLiveGameTypeObserver);
     }
 
     private void initLiveCoverPicker() {
@@ -146,11 +154,22 @@ public class LiveInfoEditView extends BasicView {
         });
     }
 
+    private void initLiveGameTypePicker() {
+        findViewById(R.id.ll_stream_game_type).setOnClickListener(view -> {
+            StreamGameTypePicker picker = new StreamGameTypePicker(mContext, mVoiceRoomManager);
+            picker.show();
+        });
+    }
+
     private void onLiveCoverChanged(String coverURL) {
         ImageLoader.load(mContext, mImageStreamCover, coverURL, R.drawable.anchor_prepare_live_stream_default_cover);
     }
 
     private void onLivePrivacyStatusChange(RoomState.LiveStreamPrivacyStatus status) {
         mTextStreamPrivacyStatus.setText(status.resId);
+    }
+
+    private void onLiveGameTypeChange(RoomState.LiveStreamGameType gameType) {
+        mTextStreamGameType.setText(gameType.resId);
     }
 }

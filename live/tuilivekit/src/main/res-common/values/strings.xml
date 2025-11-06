@@ -105,6 +105,7 @@
     <string name="common_resolution_1080p">1080p</string>
     <string name="common_stream_categories">Live type:</string>
     <string name="common_stream_privacy_status">Live Mode:</string>
+    <string name="common_stream_game_type">Game Mode:</string>
     <string name="common_voiceroom_kicked_out_of_seat">Kicked out of seat by room owner</string>
     <string name="common_apply_link_mic">Apply for link mic</string>
     <string name="common_client_error_already_in_other_room">User is Already in Another Room, Single RoomEngine Instance Only Supports User Entering One Room, To Enter Different Room, Please Leave the Room or Use New RoomEngine Instance</string>
@@ -273,6 +274,9 @@
     <string name="common_stream_categories_default">Daily chat</string>
     <string name="common_stream_privacy_status_default">Public</string>
     <string name="common_stream_privacy_status_privacy">Privacy</string>
+    <string name="common_stream_game_type_default">None</string>
+    <string name="common_stream_game_type_gobang">Gobang</string>
+    <string name="common_stream_game_type_ludo">Ludo</string>
     <string name="common_text_cancel_link_mic_apply">Cancel application for link mic</string>
     <string name="common_text_close_link_mic">End Link</string>
     <string name="common_text_link_mic_audio">Apply for audio link</string>

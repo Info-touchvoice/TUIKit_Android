@@ -3,4 +3,9 @@
         <item>@string/common_stream_privacy_status_default</item>
         <item>@string/common_stream_privacy_status_privacy</item>
     </string-array>
+    <string-array name="common_stream_game_type">
+        <item>@string/common_stream_game_type_default</item>
+        <item>@string/common_stream_game_type_gobang</item>
+        <item>@string/common_stream_game_type_ludo</item>
+    </string-array>
 </resources>

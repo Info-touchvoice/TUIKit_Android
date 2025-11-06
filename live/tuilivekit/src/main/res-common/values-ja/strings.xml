@@ -105,6 +105,7 @@
     <string name="common_resolution_1080p">1080p</string>
     <string name="common_stream_categories">ライブブロードキャストカテゴリ：</string>
     <string name="common_stream_privacy_status">ライブブロードキャストモード：</string>
+    <string name="common_stream_game_type">ゲームモード:</string>
     <string name="common_voiceroom_kicked_out_of_seat">ホストによってマイクをキックオフしました</string>
     <string name="common_apply_link_mic">ツイートを申請してください</string>
     <string name="common_client_error_already_in_other_room">現在のユーザーは別の部屋にいます。単一のルームエンジンインスタンスは、ユーザーのみが1つの部屋に入るのをサポートします。別の部屋に入りたい場合は、最初にチェックアウトするか、新しいルームエンジンインスタンスを使用してください。</string>
@@ -273,6 +274,9 @@
     <string name="common_stream_categories_default">毎日のチャット</string>
     <string name="common_stream_privacy_status_default">公共</string>
     <string name="common_stream_privacy_status_privacy">プライバシー</string>
+    <string name="common_stream_game_type_default">なし</string>
+    <string name="common_stream_game_type_gobang">ゴバン</string>
+    <string name="common_stream_game_type_ludo">フライングチェス</string>
     <string name="common_text_cancel_link_mic_apply">電話に接続するためのアプリケーションをキャンセルします</string>
     <string name="common_text_close_link_mic">分隊の終わり</string>
     <string name="common_text_link_mic_audio">音声接続を申請します</string>

@@ -63,6 +63,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ktv_view" />
 
+    <com.trtc.uikit.gamekit.gameview.GameView
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="-100dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seat_grid_container" >
+    </com.trtc.uikit.gamekit.gameview.GameView>
+
     <com.trtc.uikit.livekit.component.gift.GiftPlayView
         android:id="@+id/gift_play_view"
         android:layout_width="match_parent"
