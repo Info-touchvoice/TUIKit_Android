@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/game_view_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gamekit_bg_titlebar_rounded_top"
+        android:scaleType="centerCrop"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <FrameLayout
+            android:id="@+id/game_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/game_view_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gamekit_light_blue"/>
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/game_view_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/gamekit_bg_titlebar_rounded_bottom"
+        android:scaleType="centerCrop"/>
+</LinearLayout>

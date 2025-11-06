@@ -31,12 +31,15 @@ import androidx.lifecycle.Observer;
 import com.tencent.cloud.tuikit.engine.common.TUICommonDefine;
 import com.tencent.cloud.tuikit.engine.extension.TUILiveListManager;
 import com.tencent.cloud.tuikit.engine.room.TUIRoomDefine;
+import com.tencent.cloud.tuikit.engine.room.TUIRoomEngine;
 import com.tencent.qcloud.tuicore.TUIConstants;
 import com.tencent.qcloud.tuicore.TUICore;
 import com.tencent.qcloud.tuicore.TUILogin;
 import com.tencent.qcloud.tuicore.interfaces.ITUINotification;
 import com.trtc.tuikit.common.imageloader.ImageLoader;
 import com.trtc.tuikit.common.permission.PermissionCallback;
+import com.trtc.uikit.gamekit.LiteGameEngine;
+import com.trtc.uikit.gamekit.gameview.GameView;
 import com.trtc.uikit.livekit.R;
 import com.trtc.uikit.livekit.common.ErrorLocalized;
 import com.trtc.uikit.livekit.common.LiveKitLogger;
@@ -95,6 +98,8 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
     private ExitConfirmDialog mExitConfirmDialog;
     private ExitSeatDialog    mExitSeatDialog;
 
+    private GameView mGameView;
+
     private SeatGridViewCoreObserver mSeatGridViewCoreObserver;
 
     private final Observer<String>                   mBackgroundURLObserver   = this::updateRoomBackground;
@@ -102,6 +107,7 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
     private final Observer<RoomState.LayoutType>     mVoiceRoomLayoutObserver = this::onVoiceRoomLayoutChanged;
     private final Observer<SeatState.SeatInvitation> mSeatInvitationObserver  = this::onSeatInvitationChanged;
     private final Observer<SeatState.LinkStatus>     mLinkStateObserver       = this::onLinkStateChanged;
+    private final Observer<RoomState.LiveStreamGameType> mLiveGameTypeObserver = this::onLiveGameTypeChange;
     private       KaraokeFloatingView                mKaraokeFloatingView;
     private       KaraokeControlView                 mKaraokeControlView;
     private       ViewGroup                          mLayoutRoot;
@@ -200,6 +206,7 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
         mAnchorPreviewView = findViewById(R.id.anchor_preview_view);
         mKaraokeControlView = findViewById(R.id.ktv_view);
         mKaraokeFloatingView = new KaraokeFloatingView(mContext);
+        mGameView = findViewById(R.id.game_view);
     }
 
     private void addObserver() {
@@ -208,6 +215,7 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
         mVoiceRoomManager.getRoomState().layoutType.observeForever(mVoiceRoomLayoutObserver);
         mVoiceRoomManager.getSeatState().receivedSeatInvitation.observeForever(mSeatInvitationObserver);
         mVoiceRoomManager.getSeatState().linkStatus.observeForever(mLinkStateObserver);
+        mVoiceRoomManager.getRoomState().liveExtraInfo.gameType.observeForever(mLiveGameTypeObserver);
         mSeatGridViewCoreObserver = new SeatGridViewCoreObserver(mContext, mVoiceRoomManager, mSeatGridView);
         mSeatGridView.addObserver(mSeatGridViewCoreObserver);
         TUICore.registerEvent(EVENT_KEY_LIVE_KIT, EVENT_SUB_KEY_CLOSE_VOICE_ROOM, this);
@@ -217,6 +225,7 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
         mVoiceRoomManager.getRoomState().backgroundURL.removeObserver(mBackgroundURLObserver);
         mVoiceRoomManager.getRoomState().liveStatus.removeObserver(mLiveStateObserver);
         mVoiceRoomManager.getRoomState().layoutType.observeForever(mVoiceRoomLayoutObserver);
+        mVoiceRoomManager.getRoomState().liveExtraInfo.gameType.removeObserver(mLiveGameTypeObserver);
         mVoiceRoomManager.getSeatState().receivedSeatInvitation.removeObserver(mSeatInvitationObserver);
         mVoiceRoomManager.getSeatState().linkStatus.removeObserver(mLinkStateObserver);
         mSeatGridView.removeObserver(mSeatGridViewCoreObserver);
@@ -232,12 +241,39 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
         mKaraokeFloatingView.init(mVoiceRoomManager.getRoomState().roomId,
                 mVoiceRoomManager.getRoomManager().isOwner());
         mKaraokeControlView.init(mVoiceRoomManager.getRoomState().roomId, mVoiceRoomManager.getRoomManager().isOwner());
+
+        TUIRoomDefine.LoginUserInfo selfInfo =  TUIRoomEngine.getSelfInfo();
+        mGameView.init(selfInfo.userId, selfInfo.userName, selfInfo.avatarUrl, mVoiceRoomManager.getRoomManager().isOwner());
+        RoomState.LiveStreamGameType gameType = mVoiceRoomManager.getRoomState().liveExtraInfo.gameType.getValue();
+        if (gameType != RoomState.LiveStreamGameType.NONE) {
+            mGameView.showView();
+            if (gameType == RoomState.LiveStreamGameType.LUDO) {
+                mGameView.startGame(LiteGameEngine.GameID.FLYINGCHESS);
+            } else if (gameType == RoomState.LiveStreamGameType.GOBANG) {
+                mGameView.startGame(LiteGameEngine.GameID.GOBANG);
+            }
+        }
     }
 
     private void onLinkStateChanged(SeatState.LinkStatus status) {
         if (status == SeatState.LinkStatus.LINKING) {
             unmuteMicrophone();
             startMicrophone();
+        }
+    }
+
+    private void onLiveGameTypeChange(RoomState.LiveStreamGameType gameType) {
+        if (mVoiceRoomManager.getRoomState().liveStatus.getValue() == RoomState.LiveStatus.PUSHING) {
+            if (gameType == RoomState.LiveStreamGameType.NONE) {
+                mGameView.stopCurrentRunningGame();
+                mGameView.hideView();
+            } else if (gameType == RoomState.LiveStreamGameType.LUDO) {
+                mGameView.showView();
+                mGameView.startGame(LiteGameEngine.GameID.FLYINGCHESS);
+            } else if (gameType == RoomState.LiveStreamGameType.GOBANG) {
+                mGameView.showView();
+                mGameView.startGame(LiteGameEngine.GameID.GOBANG);
+            }
         }
     }
 
@@ -648,5 +684,23 @@ public class VoiceRoomRootView extends FrameLayout implements ITUINotification {
         START_DISPLAY,
         DISPLAY_COMPLETE,
         END_DISPLAY,
+    }
+
+    public void onResume() {
+        if (mGameView != null) {
+            mGameView.onResume();
+        }
+    }
+
+    public void onPause() {
+        if (mGameView != null) {
+            mGameView.onPause();
+        }
+    }
+
+    public void onDestroy() {
+        if (mGameView != null) {
+            mGameView.onDestroy();
+        }
     }
 }

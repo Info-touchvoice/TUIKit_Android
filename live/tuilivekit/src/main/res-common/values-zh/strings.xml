@@ -105,6 +105,7 @@
     <string name="common_resolution_1080p">1080p</string>
     <string name="common_stream_categories">直播分类:</string>
     <string name="common_stream_privacy_status">直播模式:</string>
+    <string name="common_stream_game_type">游戏模式:</string>
     <string name="common_voiceroom_kicked_out_of_seat">被主持人踢下麦位</string>
     <string name="common_apply_link_mic">申请连麦</string>
     <string name="common_client_error_already_in_other_room">当前用户已在别的房间内，单个 roomEngine 实例只支持用户进入一个房间，如果要进入不同的房间请先退房或者使用新的 roomEngine 实例</string>
@@ -273,6 +274,9 @@
     <string name="common_stream_categories_default">日常聊天</string>
     <string name="common_stream_privacy_status_default">公开</string>
     <string name="common_stream_privacy_status_privacy">隐私</string>
+    <string name="common_stream_game_type_default">无</string>
+    <string name="common_stream_game_type_gobang">五子棋</string>
+    <string name="common_stream_game_type_ludo">飞行棋</string>
     <string name="common_text_cancel_link_mic_apply">取消连麦申请</string>
     <string name="common_text_close_link_mic">结束连麦</string>
     <string name="common_text_link_mic_audio">申请语音连麦</string>

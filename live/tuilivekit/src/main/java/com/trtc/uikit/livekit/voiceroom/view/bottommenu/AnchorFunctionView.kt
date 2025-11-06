@@ -11,6 +11,7 @@ import com.trtc.uikit.livekit.R
 import com.trtc.uikit.livekit.voiceroom.state.RoomState
 import com.trtc.uikit.livekit.voiceroom.state.SeatState
 import com.trtc.uikit.livekit.voiceroom.view.BasicView
+import com.trtc.uikit.livekit.voiceroom.view.preview.StreamGameTypePicker
 import com.trtc.uikit.livekit.voiceroom.view.seatmanager.SeatManagerDialog
 import com.trtc.uikit.livekit.voiceroom.view.settings.SettingsDialog
 import io.trtc.tuikit.atomicx.karaoke.KaraokeControlView
@@ -35,6 +36,7 @@ class AnchorFunctionView @JvmOverloads constructor(
         seatApplicationCountText = findViewById(R.id.application_count)
         findViewById<View>(R.id.iv_settings).setOnClickListener { showSettingsPanel() }
         findViewById<View>(R.id.iv_song_request).setOnClickListener { showSongRequestPanel() }
+        findViewById<View>(R.id.iv_game).setOnClickListener { showGameSelectPanel() }
         findViewById<View>(R.id.iv_seat_management).setOnClickListener { showSeatManagementPanel() }
     }
 
@@ -63,6 +65,11 @@ class AnchorFunctionView @JvmOverloads constructor(
                 showSongRequestPanel()
             }
         }
+    }
+
+    private fun showGameSelectPanel() {
+        val picker = StreamGameTypePicker(mContext, mVoiceRoomManager)
+        picker.show()
     }
 
     private fun showSeatManagementPanel() {

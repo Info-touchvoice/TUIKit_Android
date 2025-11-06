@@ -1,6 +1,7 @@
 include ':app'
 include ':debug'
 include ':tuilivekit'
+include ':tuigamekit'
 
 include(":atomic")
 project(':atomic').projectDir = new File(settingsDir, '../atomic_x')

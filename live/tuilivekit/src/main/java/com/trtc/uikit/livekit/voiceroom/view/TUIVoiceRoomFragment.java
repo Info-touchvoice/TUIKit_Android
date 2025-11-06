@@ -95,6 +95,7 @@ public class TUIVoiceRoomFragment extends Fragment implements ITUINotification {
     @Override
     public void onResume() {
         super.onResume();
+        mVoiceRoomRootView.onResume();
         mVoiceRoomRootView.post(() ->
                 mVoiceRoomRootView.updateStatus(VoiceRoomRootView.VoiceRoomViewStatus.DISPLAY_COMPLETE));
     }
@@ -102,6 +103,7 @@ public class TUIVoiceRoomFragment extends Fragment implements ITUINotification {
     @Override
     public void onPause() {
         super.onPause();
+        mVoiceRoomRootView.onPause();
         mVoiceRoomRootView.post(() ->
                 mVoiceRoomRootView.updateStatus(VoiceRoomRootView.VoiceRoomViewStatus.END_DISPLAY));
     }
@@ -115,6 +117,7 @@ public class TUIVoiceRoomFragment extends Fragment implements ITUINotification {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        mVoiceRoomRootView.onDestroy();
         removeObserver();
         TUICore.unRegisterEvent(this);
         mVoiceRoomManager.destroy();

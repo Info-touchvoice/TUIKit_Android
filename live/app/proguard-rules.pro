@@ -53,6 +53,7 @@
 -dontwarn okio.**
 
 -keep class io.trtc.tuikit.atomicx.karaoke.** { *; }
+-keep class com.trtc.uikit.gamekit.UnityHostBridge { *; }
 
 # TRTC SDK Viesion >= 12.5.0
 -dontwarn com.tencent.rtmp.video.BaseBridge$BaseBridgeCallback

@@ -71,6 +71,18 @@ public class RoomState {
         }
     }
 
+    public enum LiveStreamGameType {
+        NONE(R.string.common_stream_game_type_default),
+        GOBANG(R.string.common_stream_game_type_gobang),
+        LUDO(R.string.common_stream_game_type_ludo);
+
+        public final int resId;
+
+        LiveStreamGameType(Integer id) {
+            this.resId = id;
+        }
+    }
+
     public enum LiveCategory {
         DAILY_CHAT(0),
         APPEARANCE(1),
@@ -113,6 +125,9 @@ public class RoomState {
     public static class LiveExtraInfo {
         public MutableLiveData<LiveStreamPrivacyStatus> liveMode =
                 new MutableLiveData<>(LiveStreamPrivacyStatus.PUBLIC);
+
+        public MutableLiveData<LiveStreamGameType> gameType =
+                new MutableLiveData<>(LiveStreamGameType.NONE);
 
         public long maxAudienceCount = 0;
         public long messageCount     = 0;
