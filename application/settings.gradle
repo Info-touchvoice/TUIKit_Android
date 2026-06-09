@@ -3,10 +3,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://maven.zego.im' }
         flatDir {
             dirs 'app/libs'
         }
         maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
         maven { url "https://mirrors.tencent.com/repository/maven/thirdparty" }
     }
 }
