@@ -5,10 +5,18 @@
 
     <!-- Login View -->
     <string name="login_title">LiveKit API Example</string>
-    <string name="login_subtitle">登录以开始体验</string>
+    <string name="login_subtitle">登录以开始您的直播体验</string>
     <string name="login_userID_placeholder">请输入 User ID</string>
     <string name="login_userSig_placeholder">User Sig (自动生成)</string>
     <string name="login_button">登录</string>
+    <string name="login_logo_content_description">应用标志</string>
+    <string name="login_sign_in_with_apple">通过 Apple 登录</string>
+    <string name="login_connect_with_facebook">连接 Facebook</string>
+    <string name="login_continue_with_google">通过 Google 继续</string>
+    <string name="login_continue_with_phone">通过手机号继续</string>
+    <string name="login_terms_of_service">服务条款</string>
+    <string name="login_privacy_policy">隐私政策</string>
+    <string name="login_terms_privacy">继续即表示您同意我们的服务条款，并确认已了解隐私政策。</string>
     <string name="login_status_notLoggedIn">未登录</string>
     <string name="login_status_loggingIn">登录中…</string>
     <string name="login_status_loggedIn">已登录</string>

@@ -5,6 +5,13 @@
     <color name="on_primary">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="login_scrim">#66030B1A</color>
+    <color name="login_text_secondary">#DDEAF2FF</color>
+    <color name="login_text_tertiary">#B8FFFFFF</color>
+    <color name="login_button_apple">#FF000000</color>
+    <color name="login_button_facebook">#FF1877F2</color>
+    <color name="login_icon_dark">#FF111827</color>
+    <color name="login_progress_track">#33FFFFFF</color>
     <color name="stage_blue">#FF2196F3</color>
     <color name="stage_green">#FF4CAF50</color>
     <color name="stage_orange">#FFFF9800</color>

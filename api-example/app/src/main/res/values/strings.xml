@@ -5,10 +5,18 @@
 
     <!-- Login View -->
     <string name="login_title">LiveKit API Example</string>
-    <string name="login_subtitle">Login to start</string>
+    <string name="login_subtitle">Sign in to start your live experience</string>
     <string name="login_userID_placeholder">Enter User ID</string>
     <string name="login_userSig_placeholder">User Sig (Auto-generated)</string>
     <string name="login_button">Login</string>
+    <string name="login_logo_content_description">App logo</string>
+    <string name="login_sign_in_with_apple">Sign in with Apple</string>
+    <string name="login_connect_with_facebook">Connect with Facebook</string>
+    <string name="login_continue_with_google">Continue with Google</string>
+    <string name="login_continue_with_phone">Continue with phone</string>
+    <string name="login_terms_of_service">Terms of Service</string>
+    <string name="login_privacy_policy">Privacy Policy</string>
+    <string name="login_terms_privacy">By continuing, you agree to our Terms of Service and acknowledge our Privacy Policy.</string>
     <string name="login_status_notLoggedIn">Not logged in</string>
     <string name="login_status_loggingIn">Logging in…</string>
     <string name="login_status_loggedIn">Logged in</string>
