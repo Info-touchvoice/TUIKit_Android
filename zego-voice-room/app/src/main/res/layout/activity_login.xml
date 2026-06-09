@@ -80,8 +80,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:helperText="@string/app_sign_hint"
-                    android:hint="@string/app_sign">
+                    android:hint="@string/app_sign"
+                    app:helperText="@string/app_sign_hint">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/appSignInput"
