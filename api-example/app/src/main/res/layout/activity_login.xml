@@ -1,118 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loginRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="?android:colorBackground"
     android:clickable="true"
-    android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusable="true">
 
-    <!-- Language switch button (top-right) -->
-    <ImageButton
-        android:id="@+id/btnLanguage"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/featureList_language"
-        android:src="@drawable/ic_language"
-        android:tint="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <ImageView
+        android:id="@+id/ivBackground"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center"
-        android:text="@string/login_title"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Subtitle -->
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/login_subtitle"
-        android:textColor="?android:textColorSecondary"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="@id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
-
-    <!-- User ID input field -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilUserID"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:hint="@string/login_userID_placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etUserID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLines="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Debug mode hint -->
-    <TextView
-        android:id="@+id/tvDebugTip"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/login_debug_tip"
-        android:textColor="?android:textColorTertiary"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@id/tilUserID"
-        app:layout_constraintStart_toStartOf="@id/tilUserID"
-        app:layout_constraintTop_toBottomOf="@id/tilUserID" />
-
-    <!-- Login button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/login_button"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="@id/tilUserID"
-        app:layout_constraintStart_toStartOf="@id/tilUserID"
-        app:layout_constraintTop_toBottomOf="@id/tvDebugTip" />
-
-    <!-- Loading indicator (hidden by default) -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_login_hero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/backgroundScrim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/login_scrim"
+        app:layout_constraintBottom_toBottomOf="@id/ivBackground"
+        app:layout_constraintEnd_toEndOf="@id/ivBackground"
+        app:layout_constraintStart_toStartOf="@id/ivBackground"
+        app:layout_constraintTop_toTopOf="@id/ivBackground" />
+
+    <ImageButton
+        android:id="@+id/btnLanguage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/featureList_language"
+        android:padding="12dp"
+        android:src="@drawable/ic_language"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/loginScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="640dp"
+            android:paddingStart="24dp"
+            android:paddingTop="88dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="32dp">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:contentDescription="@string/login_logo_content_description"
+                android:src="@drawable/ic_login_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/login_title"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo"
+                app:layout_constraintWidth_max="420dp" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/login_subtitle"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/login_text_secondary"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAppleSignIn"
+                style="@style/Widget.App.Login.Button.Social"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="48dp"
+                android:contentDescription="@string/login_sign_in_with_apple"
+                android:text="@string/login_sign_in_with_apple"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/login_button_apple"
+                app:icon="@drawable/ic_apple"
+                app:iconTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+                app:layout_constraintWidth_max="420dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFacebookConnect"
+                style="@style/Widget.App.Login.Button.Social"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/login_connect_with_facebook"
+                android:text="@string/login_connect_with_facebook"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/login_button_facebook"
+                app:icon="@drawable/ic_facebook"
+                app:iconTint="@color/white"
+                app:layout_constraintEnd_toEndOf="@id/btnAppleSignIn"
+                app:layout_constraintStart_toStartOf="@id/btnAppleSignIn"
+                app:layout_constraintTop_toBottomOf="@id/btnAppleSignIn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoogleLogin"
+                style="@style/Widget.App.Login.Button.Circle"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/login_continue_with_google"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/ic_google"
+                app:iconTint="@null"
+                app:layout_constraintEnd_toStartOf="@id/btnPhoneLogin"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/btnFacebookConnect"
+                app:layout_constraintTop_toBottomOf="@id/btnFacebookConnect" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPhoneLogin"
+                style="@style/Widget.App.Login.Button.Circle"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/login_continue_with_phone"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/ic_phone"
+                app:iconTint="@color/login_icon_dark"
+                app:layout_constraintBottom_toBottomOf="@id/btnGoogleLogin"
+                app:layout_constraintEnd_toEndOf="@id/btnFacebookConnect"
+                app:layout_constraintStart_toEndOf="@id/btnGoogleLogin"
+                app:layout_constraintTop_toTopOf="@id/btnGoogleLogin" />
+
+            <TextView
+                android:id="@+id/tvTermsAndPrivacy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/login_terms_privacy"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/login_text_tertiary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btnFacebookConnect"
+                app:layout_constraintStart_toStartOf="@id/btnFacebookConnect"
+                app:layout_constraintTop_toBottomOf="@id/btnGoogleLogin"
+                app:layout_constraintVertical_bias="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackColor="@color/login_progress_track" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

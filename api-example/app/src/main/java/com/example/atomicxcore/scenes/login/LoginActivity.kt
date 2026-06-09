@@ -2,12 +2,18 @@ package com.example.atomicxcore.scenes.login
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -24,6 +30,7 @@ import io.trtc.tuikit.atomicxcore.api.login.LoginListener
 import io.trtc.tuikit.atomicxcore.api.login.LoginStatus
 import io.trtc.tuikit.atomicxcore.api.login.LoginStore
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 /**
  * Business scenario: User login page
@@ -33,7 +40,7 @@ import kotlinx.coroutines.launch
  * - LoginStore.shared.loginState.loginStatus - Login status observation (StateFlow)
  * - LoginStore.shared.addLoginListener(LoginListener) - Login event listener
  *
- * Only User ID input is required; UserSig is generated locally (for debugging only)
+ * UserSig is generated locally (for debugging only)
  * Corresponds to LoginViewController on iOS
  */
 class LoginActivity : AppCompatActivity() {
@@ -42,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
     /** Key for locally cached user ID */
     private val cachedUserIDKey = "CachedLoginUserID"
+    private var isLoading = false
 
     /** Login event listener */
     private val loginListener = object : LoginListener() {
@@ -76,9 +84,10 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        configureSystemBars()
+        applyWindowInsets()
         setupActions()
         setupBindings()
-        restoreCachedUserID()
     }
 
     override fun onDestroy() {
@@ -89,20 +98,24 @@ class LoginActivity : AppCompatActivity() {
     // MARK: - Setup
 
     private fun setupActions() {
-        // Login button
-        binding.btnLogin.setOnClickListener {
-            dismissKeyboard()
-            onLoginTapped()
+        binding.btnAppleSignIn.setOnClickListener {
+            onLoginTapped(LoginMethod.APPLE)
         }
 
-        // Language switch button
+        binding.btnFacebookConnect.setOnClickListener {
+            onLoginTapped(LoginMethod.FACEBOOK)
+        }
+
+        binding.btnGoogleLogin.setOnClickListener {
+            onLoginTapped(LoginMethod.GOOGLE)
+        }
+
+        binding.btnPhoneLogin.setOnClickListener {
+            onLoginTapped(LoginMethod.PHONE)
+        }
+
         binding.btnLanguage.setOnClickListener {
             LocalizedManager.showLanguageSwitchDialog(this)
-        }
-
-        // Tap blank area to dismiss keyboard
-        binding.root.setOnClickListener {
-            dismissKeyboard()
         }
     }
 
@@ -122,25 +135,22 @@ class LoginActivity : AppCompatActivity() {
 
     // MARK: - Actions
 
-    private fun onLoginTapped() {
-        val userID = binding.etUserID.text?.toString()?.trim() ?: ""
-        if (userID.isEmpty()) {
-            showAlert(getString(R.string.common_error), getString(R.string.login_error_emptyUserID))
+    private fun onLoginTapped(method: LoginMethod) {
+        if (isLoading) {
             return
         }
 
-        // Check network connectivity before login
         if (!PermissionHelper.isNetworkAvailable(this)) {
             showAlert(getString(R.string.common_warning), getString(R.string.permission_network_unavailable))
             return
         }
 
-        performLogin(userID)
+        performLogin(resolveCachedUserID(), method)
     }
 
     // MARK: - Login Logic
 
-    private fun performLogin(userID: String) {
+    private fun performLogin(userID: String, method: LoginMethod) {
         setLoading(true)
 
         // Auto-generate UserSig (debug mode only)
@@ -158,6 +168,7 @@ class LoginActivity : AppCompatActivity() {
                         getSharedPreferences("login_prefs", MODE_PRIVATE)
                             .edit()
                             .putString(cachedUserIDKey, userID)
+                            .putString("CachedLoginMethod", method.name)
                             .apply()
 
                         // Delay 2 seconds then check profile and navigate (aligned with iOS behavior)
@@ -215,8 +226,12 @@ class LoginActivity : AppCompatActivity() {
     // MARK: - UI Helpers
 
     private fun setLoading(loading: Boolean) {
-        binding.btnLogin.isEnabled = !loading
-        binding.btnLogin.text = if (loading) "" else getString(R.string.login_button)
+        isLoading = loading
+        binding.btnAppleSignIn.isEnabled = !loading
+        binding.btnFacebookConnect.isEnabled = !loading
+        binding.btnGoogleLogin.isEnabled = !loading
+        binding.btnPhoneLogin.isEnabled = !loading
+        binding.loginScroll.alpha = if (loading) 0.72f else 1f
         binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE
     }
 
@@ -228,26 +243,30 @@ class LoginActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun dismissKeyboard() {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        currentFocus?.let { imm.hideSoftInputFromWindow(it.windowToken, 0) }
+    private fun configureSystemBars() {
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = false
+            isAppearanceLightNavigationBars = false
+        }
     }
 
     /**
-     * Restore last logged-in user ID from local cache and auto-fill the input field.
+     * Restore last logged-in user ID from local cache.
      * If no cache exists, generate a random User ID and cache it to avoid
      * multiple devices using the same ID.
      * Corresponds to restoreCachedUserID on iOS
      */
-    private fun restoreCachedUserID() {
+    private fun resolveCachedUserID(): String {
         val prefs = getSharedPreferences("login_prefs", MODE_PRIVATE)
         val cachedUserID = prefs.getString(cachedUserIDKey, null)
-        if (!cachedUserID.isNullOrEmpty()) {
-            binding.etUserID.setText(cachedUserID)
+        return if (!cachedUserID.isNullOrEmpty()) {
+            cachedUserID
         } else {
             val randomUserID = generateRandomUserID()
-            binding.etUserID.setText(randomUserID)
             prefs.edit().putString(cachedUserIDKey, randomUserID).apply()
+            randomUserID
         }
     }
 
@@ -257,5 +276,31 @@ class LoginActivity : AppCompatActivity() {
      */
     private fun generateRandomUserID(): String {
         return (100_000_000..999_999_999).random().toString()
+    }
+
+    private fun applyWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.loginRoot) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.btnLanguage.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topMargin = 16.dp() + systemBars.top
+            }
+            binding.loginContent.updatePadding(
+                top = 88.dp() + systemBars.top,
+                bottom = 32.dp() + systemBars.bottom
+            )
+            insets
+        }
+        ViewCompat.requestApplyInsets(binding.loginRoot)
+    }
+
+    private fun Int.dp(): Int {
+        return (this * resources.displayMetrics.density).roundToInt()
+    }
+
+    private enum class LoginMethod {
+        APPLE,
+        FACEBOOK,
+        GOOGLE,
+        PHONE
     }
 }
