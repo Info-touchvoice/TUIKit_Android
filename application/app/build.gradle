@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+def zegoAppSignValue = (project.findProperty("zegoAppSign") ?: "").toString()
+def escapedZegoAppSign = zegoAppSignValue.replace("\\", "\\\\").replace("\"", "\\\"")
+
 android {
     namespace 'com.tencent.uikit.app'
     compileSdk 34
@@ -12,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "long", "ZEGO_APP_ID", "1536372677L"
-        buildConfigField "String", "ZEGO_APP_SIGN", "\"${(project.findProperty("zegoAppSign") ?: "").toString()}\""
+        buildConfigField "String", "ZEGO_APP_SIGN", "\"${escapedZegoAppSign}\""
     }
 
     buildTypes {
@@ -35,6 +38,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 }
 

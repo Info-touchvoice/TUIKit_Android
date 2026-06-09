@@ -156,7 +156,7 @@ class HomeActivity : AppCompatActivity() {
     private fun input(hintText: String, defaultValue: String) = EditText(this).apply {
         hint = hintText
         setText(defaultValue)
-        singleLine = true
+        setSingleLine(true)
         setPadding(dp(12), dp(8), dp(12), dp(8))
         layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
