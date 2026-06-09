@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardBackgroundColor="@color/app_voice_home_surface"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#EFE6F8"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="86dp">
+
+            <TextView
+                android:id="@+id/text_room_avatar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:background="@drawable/app_voice_home_avatar_hot"
+                tools:text="ML" />
+
+            <TextView
+                android:id="@+id/text_room_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/app_voice_home_chip_bg"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/app_voice_home_primary"
+                android:textSize="12sp"
+                tools:text="Hot" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/text_room_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textColor="@color/app_voice_home_on_surface"
+            android:textSize="16sp"
+            tools:text="MICO Lounge" />
+
+        <TextView
+            android:id="@+id/text_room_host"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/app_voice_home_on_surface_variant"
+            android:textSize="12sp"
+            tools:text="Host Ava" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/app_voice_home_live_dot" />
+
+            <TextView
+                android:id="@+id/text_room_listener_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:textColor="@color/app_voice_home_on_surface_variant"
+                android:textSize="12sp"
+                tools:text="8.4K online" />
+
+            <TextView
+                android:id="@+id/text_room_seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/app_voice_home_on_surface_variant"
+                android:textSize="12sp"
+                tools:text="7/9 seats" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

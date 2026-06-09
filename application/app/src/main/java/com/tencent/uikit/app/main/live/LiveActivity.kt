@@ -6,8 +6,8 @@ import android.widget.RelativeLayout
 import androidx.appcompat.widget.Toolbar
 import com.tencent.uikit.app.R
 import com.tencent.uikit.app.main.BaseActivity
+import com.tencent.uikit.app.main.voice.VoiceRoomHomeActivity
 import com.trtc.uikit.livekit.livestream.VideoLiveListActivity
-import com.trtc.uikit.livekit.voiceroom.VoiceRoomListActivity
 
 class LiveActivity : BaseActivity() {
 
@@ -37,7 +37,7 @@ class LiveActivity : BaseActivity() {
     private fun initVoiceRoomView() {
         val layoutVoiceRoom: RelativeLayout = findViewById(R.id.voice_room)
         layoutVoiceRoom.setOnClickListener { v ->
-            val intent: Intent = Intent(this@LiveActivity, VoiceRoomListActivity::class.java)
+            val intent: Intent = Intent(this@LiveActivity, VoiceRoomHomeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
