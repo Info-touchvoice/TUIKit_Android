@@ -20,4 +20,5 @@
     <color name="app_color_popup_card_line_bg">#E4E5E9</color>
     <color name="app_color_navigation_bar">#F7F7F7</color>
     <color name="app_color_read_dot_bg">#f74c31</color>
+    <color name="app_popular_page_bg">#EEF5FF</color>
 </resources>

@@ -38,6 +38,8 @@
 
     <string name="app_main_item_call">通話</string>
     <string name="app_main_item_live">ライブストリーミング</string>
+    <string name="app_main_item_popular_rooms">人気ルーム</string>
+    <string name="app_main_item_popular_rooms_sub">ファンタジールーム一覧/ランキングカード/下部タブ</string>
     <string name="app_main_item_call_sub">着信音/フローティングウィンドウ/低遅延</string>
     <string name="app_main_item_category_kit">UIキット</string>
     <string name="app_main_item_category_hot">人気</string>
