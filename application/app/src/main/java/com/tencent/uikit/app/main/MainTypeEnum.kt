@@ -8,6 +8,7 @@ enum class MainTypeEnum(val type: Int, val properties: String, val reportEvent: 
     TYPE_ITEM_MEETING(100, "conference", DEMO_CLICK_ROOM),
     TYPE_ITEM_CALL(104, "call", DEMO_CLICK_CALL),
     TYPE_ITEM_LIVE(106, "live", DEMO_CLICK_LIVE),
+    TYPE_ITEM_POPULAR_ROOMS(110, "popular_rooms", DEMO_CLICK_LIVE),
     TYPE_ITEM_VOICE(107, "voice"),
     TYPE_ITEM_CHAT(109, "chat")
 }

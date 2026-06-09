@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="104dp"
+    android:layout_marginStart="2dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/app_bg_popular_card"
+    android:elevation="2dp"
+    android:paddingStart="10dp"
+    android:paddingTop="9dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="9dp">
+
+    <FrameLayout
+        android:id="@+id/fl_popular_room_avatar"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/view_popular_room_avatar_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_popular_room_avatar_initial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/tv_popular_room_hot"
+            android:layout_width="44dp"
+            android:layout_height="22dp"
+            android:layout_gravity="top|start"
+            android:background="@drawable/app_bg_popular_hot_badge"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="HOT"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_popular_room_title"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="#333333"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@id/ll_popular_room_score"
+        app:layout_constraintStart_toEndOf="@id/fl_popular_room_avatar"
+        app:layout_constraintTop_toTopOf="@id/fl_popular_room_avatar" />
+
+    <LinearLayout
+        android:id="@+id/ll_popular_room_meta"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/ll_popular_room_score"
+        app:layout_constraintStart_toEndOf="@id/fl_popular_room_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_popular_room_title">
+
+        <TextView
+            android:layout_width="24dp"
+            android:layout_height="16dp"
+            android:background="@drawable/app_bg_popular_flag"
+            android:gravity="center"
+            android:text="BD"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_popular_room_country"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical"
+            android:textColor="#555555"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_popular_room_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="7dp"
+            android:background="@drawable/app_bg_popular_vip_badge"
+            android:gravity="center"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textColor="#F2523C"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_popular_room_awards"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/ll_popular_room_score"
+        app:layout_constraintStart_toEndOf="@id/fl_popular_room_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_popular_room_meta">
+
+        <TextView
+            android:id="@+id/tv_popular_room_awards"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:background="@drawable/app_bg_popular_rank_badge"
+            android:gravity="center"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:textColor="#4B3014"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:text="PK PK PK"
+            android:textColor="#F15972"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_popular_room_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="#9A9A9A"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/fl_popular_room_avatar"
+        app:layout_constraintEnd_toStartOf="@id/ll_popular_room_score"
+        app:layout_constraintStart_toEndOf="@id/fl_popular_room_avatar" />
+
+    <LinearLayout
+        android:id="@+id/ll_popular_room_score"
+        android:layout_width="72dp"
+        android:layout_height="match_parent"
+        android:gravity="end|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_popular_room_support"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:background="@drawable/app_bg_popular_support_badge"
+            android:gravity="center"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:textColor="#8A46FF"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_popular_room_score"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="9dp"
+            android:drawableStart="@drawable/app_ic_popular_score"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textColor="#9D54FF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="PK"
+            android:textColor="#6592FF"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

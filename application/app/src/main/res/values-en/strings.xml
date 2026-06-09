@@ -44,6 +44,8 @@
     <string name="app_main_item_category_hot">Hot</string>
     <string name="app_main_item_meeting">Conference</string>
     <string name="app_main_item_meeting_sub">Quick meeting/Invite/Manage participants/Share screen</string>
+    <string name="app_main_item_popular_rooms">Popular Rooms</string>
+    <string name="app_main_item_popular_rooms_sub">Fantasy room list/Ranking cards/Bottom tabs</string>
     <string name="app_main_tag">Attention: This is a DEMO APP. Do not trust anyone asking you to transfer money. Report scam></string>
     <string name="app_title_share_log">Share Logs</string>
     <string name="app_group_call">group call</string>
