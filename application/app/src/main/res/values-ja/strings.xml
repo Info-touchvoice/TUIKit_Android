@@ -3,8 +3,11 @@
     <string name="app_name">Tencent Cloud ビデオ＆オーディオ</string>
     <string name="app_main_title">Tencent Cloud ビデオ＆オーディオ</string>
     <string name="app_user_id">ユーザーIDです</string>
-    <string name="app_hint_user_id">ユーザーIDの入力をお願いします</string>
-    <string name="app_btn_login">登録します</string>
+    <string name="app_login_title">LiveKit API Example</string>
+    <string name="app_login_subtitle">ログインして開始します</string>
+    <string name="app_hint_user_id">User IDを入力してください</string>
+    <string name="app_login_debug_tip">UserSigはローカルで自動生成されます（デバッグモードのみ）</string>
+    <string name="app_btn_login">ログイン</string>
     <string name="app_user_id_is_empty">ユーザIDを空にすることはできません。</string>
     <string name="app_toast_login_fail">ログインに失敗しました [%d]%s</string>
     <string name="app_custom_name_1">マルティン</string>
