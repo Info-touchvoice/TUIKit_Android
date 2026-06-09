@@ -4,6 +4,13 @@
     <string name="app_user_id">UserId</string>
     <string name="app_hint_user_id">Enter a userId</string>
     <string name="app_btn_login">Log In</string>
+    <string name="app_login_with_apple">Sign in with Apple</string>
+    <string name="app_login_with_facebook">Connect with Facebook</string>
+    <string name="app_login_with_google">Continue with Google</string>
+    <string name="app_login_with_phone">Continue with phone</string>
+    <string name="app_login_facebook_symbol">f</string>
+    <string name="app_login_google_symbol">G</string>
+    <string name="app_login_terms_html">By continuing you agree to the&lt;br/&gt;&lt;font color=&quot;#45A4FF&quot;&gt;Terms of Service&lt;/font&gt; and &lt;font color=&quot;#45A4FF&quot;&gt;Privacy Policy&lt;/font&gt; and &lt;font color=&quot;#45A4FF&quot;&gt;Child Safety Policy&lt;/font&gt;</string>
     <string name="app_user_id_is_empty">UserId is empty</string>
     <string name="app_toast_login_fail">Login failed [%d]%s</string>
     <string name="app_custom_name_1">Martijn</string>
