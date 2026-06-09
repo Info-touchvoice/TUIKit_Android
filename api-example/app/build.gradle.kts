@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.atomicxcore"
-        minSdk = 26
+        minSdk = 24
         targetSdk = 35
         versionCode = appVersionCode
         versionName = appVersionName

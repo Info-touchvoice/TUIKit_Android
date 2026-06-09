@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_room_card"
+    android:elevation="4dp"
+    android:minHeight="94dp"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvAvatar"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHotBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_gold_chip"
+        android:gravity="center"
+        android:minWidth="42dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tvAvatar"
+        app:layout_constraintTop_toTopOf="@id/tvAvatar" />
+
+    <TextView
+        android:id="@+id/tvRoomTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FF4B425A"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/rankGroup"
+        app:layout_constraintStart_toEndOf="@id/tvAvatar"
+        app:layout_constraintTop_toTopOf="@id/tvAvatar" />
+
+    <ImageView
+        android:id="@+id/ivCountryFlag"
+        android:layout_width="22dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_flag_bangladesh"
+        app:layout_constraintStart_toEndOf="@id/tvAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvRoomTitle" />
+
+    <TextView
+        android:id="@+id/tvVipBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_vip_badge"
+        android:gravity="center"
+        android:minWidth="48dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColor="@color/luxury_gold_dark"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ivCountryFlag"
+        app:layout_constraintStart_toEndOf="@id/ivCountryFlag"
+        app:layout_constraintTop_toTopOf="@id/ivCountryFlag" />
+
+    <TextView
+        android:id="@+id/tvRankLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_rank_badge"
+        android:gravity="center"
+        android:minWidth="34dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColor="#FF6A3600"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvVipBadge"
+        app:layout_constraintStart_toEndOf="@id/tvVipBadge"
+        app:layout_constraintTop_toTopOf="@id/tvVipBadge" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/muted_text"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@id/tvPkBadge"
+        app:layout_constraintStart_toEndOf="@id/tvAvatar"
+        app:layout_constraintTop_toBottomOf="@id/ivCountryFlag" />
+
+    <LinearLayout
+        android:id="@+id/rankGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvRoomTitle">
+
+        <ImageView
+            android:id="@+id/ivCrownOne"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_crown" />
+
+        <ImageView
+            android:id="@+id/ivCrownTwo"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="-4dp"
+            android:src="@drawable/ic_crown" />
+
+        <ImageView
+            android:id="@+id/ivCrownThree"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="-4dp"
+            android:src="@drawable/ic_crown" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popularityGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankGroup">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_popularity" />
+
+        <TextView
+            android:id="@+id/tvPopularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/luxury_purple_light"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPkBadge"
+        android:layout_width="44dp"
+        android:layout_height="24dp"
+        android:background="@drawable/bg_pk_badge"
+        android:gravity="center"
+        android:text="@string/voice_room_pk"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvAvatar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

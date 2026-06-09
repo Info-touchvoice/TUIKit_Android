@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- White background matching iOS launch image -->
-    <item android:drawable="@android:color/white" />
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:endColor="@color/luxury_purple_dark"
+                android:centerColor="@color/luxury_purple"
+                android:startColor="#FF14001F" />
+        </shape>
+    </item>
+    <item
+        android:bottom="96dp"
+        android:left="52dp"
+        android:right="52dp"
+        android:top="96dp">
+        <shape android:shape="oval">
+            <gradient
+                android:angle="45"
+                android:endColor="#331EDBFF"
+                android:startColor="#66FFB347" />
+        </shape>
+    </item>
 </layer-list>

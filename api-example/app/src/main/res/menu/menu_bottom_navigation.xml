@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_match"
+        android:icon="@drawable/ic_nav_match"
+        android:title="@string/voice_nav_match" />
+    <item
+        android:id="@+id/nav_group"
+        android:icon="@drawable/ic_nav_group"
+        android:title="@string/voice_nav_group" />
+    <item
+        android:id="@+id/nav_game"
+        android:icon="@drawable/ic_nav_game"
+        android:title="@string/voice_nav_game" />
+    <item
+        android:id="@+id/nav_plaza"
+        android:icon="@drawable/ic_nav_plaza"
+        android:title="@string/voice_nav_plaza" />
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_nav_chat"
+        android:title="@string/voice_nav_chat" />
+</menu>

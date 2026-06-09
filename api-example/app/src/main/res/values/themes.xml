@@ -5,12 +5,18 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/primary_light</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:navigationBarColor">@color/luxury_purple_dark</item>
+        <item name="android:statusBarColor">@color/luxury_purple_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <!-- Splash theme -->
     <style name="Theme.AtomicXCoreExample.Splash" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/luxury_purple_dark</item>
+        <item name="android:statusBarColor">@color/luxury_purple_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <!-- Transparent theme for live pages (BasicStreaming / Interactive / LivePK / MultiConnect) -->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
-    <string name="app_name">AtomicXCore Example</string>
+    <string name="app_name">Royal Voice Rooms</string>
 
     <!-- Login View -->
     <string name="login_title">LiveKit API Example</string>
@@ -239,4 +239,31 @@
     <string name="permission_camera_mic_denied">Camera and microphone permissions are required for live streaming. Please grant them in Settings.</string>
     <string name="permission_camera_mic_denied_coguest">Camera and microphone permissions are required for co-guesting. Please grant them in Settings.</string>
     <string name="permission_network_unavailable">Network is unavailable. Please check your connection and try again.</string>
+
+    <!-- Royal Voice Room UI -->
+    <string name="voice_splash_title">Royal Voice Rooms</string>
+    <string name="voice_splash_subtitle">Luxury voice chat, games, and PK rooms</string>
+    <string name="voice_login_title">Welcome back</string>
+    <string name="voice_login_subtitle">Enter your nickname to explore live voice rooms</string>
+    <string name="voice_login_name_hint">Nickname</string>
+    <string name="voice_login_room_hint">Invite code (optional)</string>
+    <string name="voice_login_button">Enter Voice Rooms</string>
+    <string name="voice_login_guest">Continue as guest</string>
+    <string name="voice_login_error">Please enter a nickname</string>
+    <string name="voice_home_title">Royal Voice</string>
+    <string name="voice_home_search">Search rooms</string>
+    <string name="voice_home_banner_title">Weekly Star</string>
+    <string name="voice_home_banner_subtitle">Top hosts, gifts, and luxury rooms are live now</string>
+    <string name="voice_tab_related">Related</string>
+    <string name="voice_tab_popular">Popular</string>
+    <string name="voice_tab_discover">Discover</string>
+    <string name="voice_tab_new">New</string>
+    <string name="voice_room_welcome">Welcome to Hilo!</string>
+    <string name="voice_room_popularity">Popularity</string>
+    <string name="voice_room_pk">PK</string>
+    <string name="voice_nav_match">Match</string>
+    <string name="voice_nav_group">Group</string>
+    <string name="voice_nav_game">Game</string>
+    <string name="voice_nav_plaza">Plaza</string>
+    <string name="voice_nav_chat">Chat</string>
 </resources>

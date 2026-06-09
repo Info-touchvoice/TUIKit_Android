@@ -4,107 +4,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="?android:colorBackground"
+    android:background="@drawable/bg_luxury_gradient"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <!-- Language switch button (top-right) -->
-    <ImageButton
-        android:id="@+id/btnLanguage"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/featureList_language"
-        android:src="@drawable/ic_language"
-        android:tint="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
+        android:id="@+id/loginCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center"
-        android:text="@string/login_title"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/bg_login_card"
+        android:elevation="12dp"
+        android:orientation="vertical"
+        android:padding="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <!-- Subtitle -->
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/login_subtitle"
-        android:textColor="?android:textColorSecondary"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="@id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_app_logo" />
 
-    <!-- User ID input field -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilUserID"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:hint="@string/login_userID_placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etUserID"
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLines="1" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/voice_login_title"
+            android:textColor="@color/luxury_purple_dark"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/voice_login_subtitle"
+            android:textColor="@color/muted_text"
+            android:textSize="14sp" />
 
-    <!-- Debug mode hint -->
-    <TextView
-        android:id="@+id/tvDebugTip"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/login_debug_tip"
-        android:textColor="?android:textColorTertiary"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@id/tilUserID"
-        app:layout_constraintStart_toStartOf="@id/tilUserID"
-        app:layout_constraintTop_toBottomOf="@id/tilUserID" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNickname"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:hint="@string/voice_login_name_hint"
+            app:boxStrokeColor="@color/luxury_purple_light"
+            app:startIconDrawable="@drawable/ic_person">
 
-    <!-- Login button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/login_button"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="@id/tilUserID"
-        app:layout_constraintStart_toStartOf="@id/tilUserID"
-        app:layout_constraintTop_toBottomOf="@id/tvDebugTip" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:text="Royal Guest" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Loading indicator (hidden by default) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilInviteCode"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:hint="@string/voice_login_room_hint"
+            app:boxStrokeColor="@color/luxury_purple_light"
+            app:startIconDrawable="@drawable/ic_crown">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etInviteCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/luxury_purple_light"
+            android:text="@string/voice_login_button"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="18dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuest"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/voice_login_guest"
+            android:textColor="@color/luxury_purple"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
