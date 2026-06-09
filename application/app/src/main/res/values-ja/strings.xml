@@ -36,9 +36,7 @@
     <string name="app_self_detail_modify_nickname_rule">中国語、アルファベット、数字、下線のみです。</string>
     <string name="app_choose_avatar">アイコンを選択します</string>
 
-    <string name="app_main_item_call">通話</string>
     <string name="app_main_item_live">ライブストリーミング</string>
-    <string name="app_main_item_call_sub">着信音/フローティングウィンドウ/低遅延</string>
     <string name="app_main_item_category_kit">UIキット</string>
     <string name="app_main_item_category_hot">人気</string>
     <string name="app_main_tag">注意：これはデモアプリです。送金を要求する連絡を信用しないでください。詐欺を報告></string>

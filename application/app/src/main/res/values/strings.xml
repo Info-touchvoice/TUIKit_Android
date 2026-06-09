@@ -34,16 +34,12 @@
     <string name="app_self_detail_modify_nickname">Name</string>
     <string name="app_self_detail_modify_nickname_rule">Only letters, digits, underscores, and Chinese characters.</string>
     <string name="app_choose_avatar">Choose Avatar</string>
-    <string name="app_main_item_call">Call</string>
     <string name="app_main_item_live">Live</string>
     <string name="app_main_item_chatroom">Audio Chat</string>
-    <string name="app_main_item_call_sub">Ringtone/Floating window/Less stutter</string>
     <string name="app_main_item_live_sub">Live preview/Beauty filters/Multi-host</string>
     <string name="app_main_item_chatroom_sub">High audio quality/Large room/Smooth mic on/off</string>
     <string name="app_main_item_category_kit">UIKit</string>
     <string name="app_main_item_category_hot">Hot</string>
-    <string name="app_main_item_meeting">Conference</string>
-    <string name="app_main_item_meeting_sub">Quick meeting/Invite/Manage participants/Share screen</string>
     <string name="app_main_tag">Attention: This is a DEMO APP. Do not trust anyone asking you to transfer money. Report scam></string>
     <string name="app_title_share_log">Share Logs</string>
     <string name="app_group_call">group call</string>

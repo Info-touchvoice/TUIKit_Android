@@ -15,14 +15,8 @@ include ':app'
 
 include ':debug'
 
-include ':tuicallkit-kt'
-project(':tuicallkit-kt').projectDir = new File(settingsDir, "../call/tuicallkit-kt")
-
 include ':tuilivekit'
 project(':tuilivekit').projectDir = new File(settingsDir, "../live/tuilivekit")
-
-include ':tuiroomkit'
-project(':tuiroomkit').projectDir = new File(settingsDir, "../room/tuiroomkit")
 
 include ':atomic_x'
 project(':atomic_x').projectDir = new File(settingsDir, "../atomic_x")
