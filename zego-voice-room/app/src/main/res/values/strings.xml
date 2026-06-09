@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ZEGO Voice Room</string>
+    <string name="login_title">Welcome to Voice Rooms</string>
+    <string name="login_subtitle">Sign in with a display name and start a ZEGO live audio room.</string>
+    <string name="user_id">User ID</string>
+    <string name="user_name">Display name</string>
+    <string name="app_sign">ZEGO AppSign</string>
+    <string name="app_sign_hint">Paste your AppSign from ZEGO Console</string>
+    <string name="continue_text">Continue</string>
+    <string name="home">Home</string>
+    <string name="rooms">Rooms</string>
+    <string name="profile">Profile</string>
+    <string name="create_room">Create Room</string>
+    <string name="join_as_audience">Join as Audience</string>
+    <string name="host_room">Host Room</string>
+    <string name="room_id">Room ID</string>
+    <string name="room_title">Room title</string>
+    <string name="topic">Topic</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="empty_rooms">No rooms yet. Host a room to add one to the list.</string>
+    <string name="voice_room">Voice Room</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Log out</string>
+    <string name="preview_chat">Preview chat</string>
+    <string name="seat_preview">Seat preview</string>
+</resources>
