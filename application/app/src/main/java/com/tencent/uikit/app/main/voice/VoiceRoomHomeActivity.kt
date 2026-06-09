@@ -31,6 +31,7 @@ class VoiceRoomHomeActivity : BaseActivity() {
     private val bannerHandler = Handler(Looper.getMainLooper())
     private var bannerAutoRunnable: Runnable? = null
     private var selectedBannerIndex = 0
+    private var isUpdatingNavigation = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,6 +135,9 @@ class VoiceRoomHomeActivity : BaseActivity() {
 
     private fun initBottomNavigation() {
         bottomNavigationView.setOnItemSelectedListener { item ->
+            if (isUpdatingNavigation) {
+                return@setOnItemSelectedListener true
+            }
             val tab = when (item.itemId) {
                 R.id.navigation_voice_home -> VoiceRoomHomeTab.HOME
                 R.id.navigation_voice_rooms -> VoiceRoomHomeTab.ROOMS
@@ -166,12 +170,20 @@ class VoiceRoomHomeActivity : BaseActivity() {
         guildAdapter.submitList(uiState.guilds)
         selectedBannerIndex = selectedBannerIndex.coerceIn(0, (uiState.banners.size - 1).coerceAtLeast(0))
         updateBannerIndicators(uiState.banners.size)
-        bottomNavigationView.selectedItemId = when (uiState.selectedTab) {
+        val selectedItemId = when (uiState.selectedTab) {
             VoiceRoomHomeTab.HOME -> R.id.navigation_voice_home
             VoiceRoomHomeTab.ROOMS -> R.id.navigation_voice_rooms
             VoiceRoomHomeTab.CREATE -> R.id.navigation_voice_create
             VoiceRoomHomeTab.GUILDS -> R.id.navigation_voice_family
             VoiceRoomHomeTab.PROFILE -> R.id.navigation_voice_profile
+        }
+        if (bottomNavigationView.selectedItemId != selectedItemId) {
+            isUpdatingNavigation = true
+            try {
+                bottomNavigationView.selectedItemId = selectedItemId
+            } finally {
+                isUpdatingNavigation = false
+            }
         }
     }
 
