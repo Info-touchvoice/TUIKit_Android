@@ -3,84 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color_white">
+    android:background="@color/app_color_white"
+    android:clickable="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
-    <ImageView
-        android:id="@+id/iv_login_logo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="171dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/app_tencent_cloud_logo"
+    <TextView
+        android:id="@+id/tv_login_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="@string/app_login_title"
+        android:textColor="@color/app_color_main_text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_login_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="@string/app_main_title"
-        android:textColor="@color/app_color_black"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_login_logo"
-        app:layout_constraintStart_toEndOf="@id/iv_login_logo"
-        app:layout_constraintTop_toTopOf="@id/iv_login_logo" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_edit"
+        android:id="@+id/tv_login_subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="109dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/app_login_subtitle"
+        android:textColor="@color/app_color_main_item_subtitle"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_login_title"
+        app:layout_constraintStart_toStartOf="@id/tv_login_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
+
+    <EditText
+        android:id="@+id/et_userId"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/app_bg_edit_text"
-        android:padding="14dp"
+        android:hint="@string/app_hint_user_id"
+        android:inputType="textVisiblePassword"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:singleLine="true"
+        android:textColor="@color/app_color_main_text"
+        android:textColorHint="@color/app_text_color_hint"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_login_logo">
+        app:layout_constraintTop_toBottomOf="@id/tv_login_subtitle" />
 
-        <TextView
-            android:id="@+id/tv_userid_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_user_id"
-            android:textColor="@color/app_color_black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/et_userId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@null"
-            android:hint="@string/app_hint_user_id"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="@color/app_color_black"
-            android:textColorHint="@color/app_text_color_hint"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_userid_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_userid_hint" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_login_debug_tip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/app_login_debug_tip"
+        android:textColor="@color/app_color_main_item_subtitle"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/et_userId"
+        app:layout_constraintStart_toStartOf="@id/et_userId"
+        app:layout_constraintTop_toBottomOf="@id/et_userId" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/app_bg_button"
         android:text="@string/app_btn_login"
+        android:textAllCaps="false"
         android:textColor="@color/app_color_white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_edit" />
+        app:layout_constraintEnd_toEndOf="@id/et_userId"
+        app:layout_constraintStart_toStartOf="@id/et_userId"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_debug_tip" />
 </androidx.constraintlayout.widget.ConstraintLayout>

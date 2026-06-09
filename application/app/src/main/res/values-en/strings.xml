@@ -3,8 +3,11 @@
     <string name="app_name">APP-UIKit</string>
     <string name="app_main_title">Tencent RTC</string>
     <string name="app_user_id">UserId</string>
-    <string name="app_hint_user_id">Enter a userId</string>
-    <string name="app_btn_login">Log In</string>
+    <string name="app_login_title">LiveKit API Example</string>
+    <string name="app_login_subtitle">Login to start</string>
+    <string name="app_hint_user_id">Enter User ID</string>
+    <string name="app_login_debug_tip">UserSig will be generated locally (debug mode only)</string>
+    <string name="app_btn_login">Login</string>
     <string name="app_user_id_is_empty">UserId is empty</string>
     <string name="app_toast_login_fail">Login failed [%d]%s</string>
     <string name="app_custom_name_1">Martijn</string>
