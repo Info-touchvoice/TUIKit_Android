@@ -14,7 +14,7 @@ import com.tencent.uikit.app.R
 import com.tencent.uikit.app.common.utils.DEMO_LOGIN_SUCCESS
 import com.tencent.uikit.app.common.utils.KeyMetrics
 import com.tencent.uikit.app.main.BaseActivity
-import com.tencent.uikit.app.main.MainActivity
+import com.tencent.uikit.app.main.live.LiveActivity
 import io.trtc.tuikit.atomicx.widget.basicwidget.toast.AtomicToast
 import io.trtc.tuikit.atomicxcore.api.CompletionHandler
 import io.trtc.tuikit.atomicxcore.api.login.LoginStore
@@ -97,7 +97,7 @@ class LoginActivity : BaseActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        val intent = Intent(this@LoginActivity, LiveActivity::class.java)
                         startActivity(intent)
                         finish()
                     }

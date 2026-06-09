@@ -13,7 +13,7 @@ import com.tencent.imsdk.v2.V2TIMCallback
 import com.tencent.imsdk.v2.V2TIMUserFullInfo
 import com.tencent.uikit.app.R
 import com.tencent.uikit.app.main.BaseActivity
-import com.tencent.uikit.app.main.MainActivity
+import com.tencent.uikit.app.main.live.LiveActivity
 import com.tencent.uikit.app.mine.UserManager
 import io.trtc.tuikit.atomicx.widget.basicwidget.avatar.AtomicAvatar
 import io.trtc.tuikit.atomicx.widget.basicwidget.avatar.AtomicAvatar.AvatarContent
@@ -49,8 +49,8 @@ class RegisterActivity : BaseActivity() {
     private var avatarUrl: String = ""
     private val random = Random()
 
-    private fun startMainActivity() {
-        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+    private fun startLiveActivity() {
+        val intent = Intent(this@RegisterActivity, LiveActivity::class.java)
         startActivity(intent)
     }
 
@@ -144,7 +144,7 @@ class RegisterActivity : BaseActivity() {
                     AtomicToast.Style.ERROR,
                     duration = AtomicToast.Duration.LONG
                 )
-                startMainActivity()
+                startLiveActivity()
                 finish()
             }
 
@@ -156,7 +156,7 @@ class RegisterActivity : BaseActivity() {
                     AtomicToast.Style.SUCCESS,
                     duration = AtomicToast.Duration.LONG
                 )
-                startMainActivity()
+                startLiveActivity()
                 finish()
             }
         })
