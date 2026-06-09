@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_voice_home"
+        android:icon="@drawable/app_ic_voice_home"
+        android:title="@string/app_voice_home_home" />
+
+    <item
+        android:id="@+id/navigation_voice_rooms"
+        android:icon="@drawable/app_ic_voice_rooms"
+        android:title="@string/app_voice_home_rooms" />
+
+    <item
+        android:id="@+id/navigation_voice_create"
+        android:icon="@drawable/app_ic_voice_create"
+        android:title="@string/app_voice_home_create" />
+
+    <item
+        android:id="@+id/navigation_voice_family"
+        android:icon="@drawable/app_ic_voice_family"
+        android:title="@string/app_voice_home_family" />
+
+    <item
+        android:id="@+id/navigation_voice_profile"
+        android:icon="@drawable/app_ic_voice_profile"
+        android:title="@string/app_voice_home_profile" />
+</menu>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_voice_banner_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="22dp"
+        tools:background="@drawable/app_voice_home_banner_gradient_1">
+
+        <TextView
+            android:id="@+id/text_voice_banner_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/text_voice_banner_mic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Late Night Voice Party" />
+
+        <TextView
+            android:id="@+id/text_voice_banner_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="#EFFFFFFF"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/text_voice_banner_mic"
+            app:layout_constraintStart_toStartOf="@id/text_voice_banner_title"
+            app:layout_constraintTop_toBottomOf="@id/text_voice_banner_title"
+            tools:text="Meet new friends, grab a mic, and keep the room glowing." />
+
+        <TextView
+            android:id="@+id/text_voice_banner_action"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/app_voice_home_chip_bg"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/app_voice_home_primary"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Join trending" />
+
+        <TextView
+            android:id="@+id/text_voice_banner_mic"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/app_voice_home_guild_badge"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="MIC"
+            android:textColor="@color/app_voice_home_primary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

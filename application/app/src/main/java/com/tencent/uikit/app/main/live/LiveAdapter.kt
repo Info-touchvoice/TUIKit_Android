@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tencent.uikit.app.R
+import com.tencent.uikit.app.main.voice.VoiceRoomHomeActivity
 import com.trtc.uikit.livekit.livestream.VideoLiveListActivity
-import com.trtc.uikit.livekit.voiceroom.VoiceRoomListActivity
 
 class LiveAdapter(private val context: Context, private val dataList: MutableList<LiveItemData?>) :
     RecyclerView.Adapter<LiveAdapter.ItemViewHolder?>() {
@@ -61,7 +61,7 @@ class LiveAdapter(private val context: Context, private val dataList: MutableLis
         }
 
         private fun startVoiceRoomActivity() {
-            val intent = Intent(context, VoiceRoomListActivity::class.java)
+            val intent = Intent(context, VoiceRoomHomeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
         }
