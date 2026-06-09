@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.zegovoiceroom"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.zegovoiceroom"
-        minSdk = 23
-        targetSdk = 35
+        minSdk = 26
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
 
