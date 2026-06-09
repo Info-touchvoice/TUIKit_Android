@@ -9,12 +9,12 @@ val appVersionCode: Int = (project.findProperty("appVersionCode") as? String)?.t
 
 android {
     namespace = "com.example.atomicxcore"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.atomicxcore"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = appVersionCode
         versionName = appVersionName
 
