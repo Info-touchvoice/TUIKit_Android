@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tencent.qcloud.tuicore.TUIThemeManager
 import com.tencent.uikit.app.R
-import com.tencent.uikit.app.main.MainActivity
+import com.tencent.uikit.app.main.live.LiveActivity
 import java.util.Locale
 
 class LanguageSelectActivity : AppCompatActivity() {
@@ -72,7 +72,7 @@ class LanguageSelectActivity : AppCompatActivity() {
                     .changeLanguage(this@LanguageSelectActivity, currentLanguage)
                 changeTitleLanguage()
                 notifyLanguageChanged()
-                val intent = Intent(this@LanguageSelectActivity, MainActivity::class.java)
+                val intent = Intent(this@LanguageSelectActivity, LiveActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
                 finish()
